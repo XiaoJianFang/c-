@@ -1,0 +1,39 @@
+// int to string 
+//string to int
+class Solution {
+public:
+    int evalRPN(vector<string> &tokens) {
+        stack<int> expression;
+        for(auto x:tokens)
+        {
+            if( x=="+"||x=="-"||x=="*"||x=="/")
+            {
+                if(expression.size()<2) return 0;
+                int b=expression.top();expression.pop();
+                int a=expression.top();expression.pop();
+                int c;
+                if(x=="+")
+                {
+                    c=a+b;
+                }
+                else if(x=="-")
+                {
+                    c=a-b;
+                }
+                else if(x=="*")
+                {
+                    c=a*b;
+                }else if(x=="/")
+                {
+                    c=a/b;
+                }
+                expression.push(c);
+            }
+            else
+            {
+                expression.push( atoi( x.c_str()));
+            }
+        }
+        return expression.top();
+    }
+};
