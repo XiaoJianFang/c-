@@ -1,4 +1,7 @@
 //minimum - depth - of - binary - tree
+//level-order traversal
+//count the layer number
+//Find the first child node ,than exit
 class Solution {
 public:
 	int run(TreeNode *root) {
